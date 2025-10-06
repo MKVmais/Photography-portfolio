@@ -1,0 +1,350 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255, 0.9);
+  z-index: 1000;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.navbar nav a {
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+.navbar nav a:hover {
+  color: gray;
+}
+
+/* Hero (section 1) */
+.hero {
+  height: 100vh;
+  background: url("IMG_0004.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-content {
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 30px 50px;
+}
+.hero-content h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 12px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: background 0.3s, color 0.3s;
+}
+.btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* Section */
+.atheneum {
+  background: #fff;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.atheneum-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Gallery */
+.atheneum-gallery {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.atheneum-gallery img {
+  height: 400px;
+  flex-shrink: 0;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.atheneum-gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease;
+  z-index: 9999; /* above navbar */
+}
+
+#lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+#prev { left: 20px; }
+#next { right: 20px; }
+
+/* Section 2: Feature */
+.feature {
+  display: flex;
+  flex-wrap: wrap;
+  height: 70vh;
+}
+.feature a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #111;
+}
+.feature-image {
+  flex: 1;
+  background: url("img/section2.jpg") center/cover no-repeat;
+}
+.feature-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.feature-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.feature-text p {
+  font-size: 18px;
+}
+
+/* Section 3: Text + Image */
+.text-image {
+  display: flex;
+  flex-wrap: wrap;
+  height: 60vh;
+}
+.text-block, .image-block {
+  flex: 1;
+  min-height: 300px;
+}
+.text-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.text-block h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.text-block p {
+  font-size: 16px;
+}
+.image-block {
+  background: url("img/section3.jpg") center/cover no-repeat;
+}
+
+/* Section 4: Panels */
+.panels {
+  display: flex;
+  height: 60vh;
+}
+.panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.panel-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+.panel1 { background-image: url("img/section4a.jpg"); }
+.panel2 { background-image: url("img/section4b.jpg"); }
+.panel:hover .panel-image {
+  transform: scale(1.05);
+}
+.panel-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  font-size: 24px;
+}
+
+/* Section 5: Overlay */
+.overlay {
+  position: relative;
+  height: 70vh;
+}
+.overlay-image {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: url("img/section5.jpg") center/cover no-repeat;
+}
+.overlay-text {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-text h2 {
+  color: white;
+  font-size: 40px;
+  background: rgba(0,0,0,0.4);
+  padding: 20px 40px;
+}
+
+/* Section 6: Grid Preview */
+.grid-preview {
+  padding: 60px 10%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.grid-preview .grid-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.grid-preview .grid-item img:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  color: #555;
+  background: #f9f9f9;
+}
+
+/* Animations & Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px) {
+  .feature, .text-image, .panels {
+    flex-direction: column;
+    height: auto;
+  }
+  .grid-preview {
+    grid-template-columns: 1fr;
+    padding: 40px 5%;
+  }
+  .hero-content h1 {
+    font-size: 32px;
+  }
+  .overlay-text h2 {
+    font-size: 28px;
+  }
+  .panel-text {
+    font-size: 20px;
+  }
+}
